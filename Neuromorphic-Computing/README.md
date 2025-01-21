@@ -2,4 +2,4 @@ In Neuromorphic Computing by [Professor Dat Tran](https://ieeexplore.ieee.org/ab
 
 <img src="Mem-Capacitive Reservoir.png" />
 <em>D. Tran and C. Teuscher, "Multi-Tasking Memcapacitive Networks," in IEEE Journal on Emerging and Selected Topics in Circuits and Systems, vol. 13, no. 1, pp. 323-331, March 2023, doi: 10.1109/JETCAS.2023.3235242.
-keywords: {Reservoirs;Task analysis;Multitasking;Nanowires;Topology;Network topology;Circuits and systems;Memcapacitor;multi-tasking;network;topology;brain-inspired}</em>
+</em>
