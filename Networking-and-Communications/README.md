@@ -4,4 +4,4 @@ In Networking and Communications by Dr Narasimha I learned to model signal encod
 
 # 5G Technology
 
-[5G Technologies.pdf](5G Technologies.pdf)
+[Download 5G Technologies.pdf](5G Technologies.pdf)
