@@ -1,6 +1,3 @@
-# ******************************************************************************
-# Load in relevant libraries, and alias where appropriate
-# ******************************************************************************
 import torch, os
 import torch.nn as nn
 import torchvision
@@ -10,14 +7,7 @@ import torchvision.transforms as transforms
 # Convolution Neural Network
 # ******************************************************************************
 class ConvNeuralNet(nn.Module):
-    '''
-    The reference of the convolution neural networks (CNNs) is from:
-        https://blog.paperspace.com/writing-cnns-from-scratch-in-pytorch/
-        https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html
-    '''
-    # **************************************************************************
-	#  Determine what layers and their order in CNN object
-    # **************************************************************************
+
     def __init__(self, MumClasses):
         super(ConvNeuralNet, self).__init__()
         self.ConvLayer1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3)
@@ -51,11 +41,7 @@ class ConvNeuralNet(nn.Module):
         out = self.FC2(out)
         return out
 
-# ******************************************************************************
 if __name__ == "__main__":
-    # **************************************************************************
-    # a temporary fix for OpenMP
-    # **************************************************************************
     os.environ["KMP_DUPLICATE_LIB_OK"]="True"
 
     # **************************************************************************
