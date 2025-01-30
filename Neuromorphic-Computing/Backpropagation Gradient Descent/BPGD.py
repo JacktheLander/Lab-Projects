@@ -52,12 +52,13 @@ def SigmoidDerivative(Z):
 def Softmax(Z):
 	'''Softmax function
 	Inputs:
-		Z: a 2d matrix (mxn): m mini-batch, n output neurons
+	Z: a 2d matrix (mxn): m mini-batch, n output neurons
 	Returns: softmax values
 	'''
-	ExpVals     = np.exp(np.subtract(Z, np.max(Z)))
-	ExpValSum   = np.sum(ExpVals)
-	return np.divide(ExpVals, ExpValSum)
+	"""Applies softmax function row-wise."""
+	ExpVals = np.exp(Z - np.max(Z, axis=1, keepdims=True)) # For numerical
+	stability
+	return np.divide(ExpVals, np.sum(ExpVals, axis=1, keepdims=True))
 
 # ******************************************************************************
 def SoftmaxDerivative(Z): # Best implementation (VERY FAST)
@@ -279,30 +280,28 @@ if __name__ == "__main__":
 	# **************************************************************************
 	# load data to np array
 	# **************************************************************************
-	TrainData, TrainTargets, TestData, TestTargets = LoadData("Assets")
-	# print("TrainData    = ", TrainData.shape)
-	# print("TrainTargets    = ", TrainTargets.shape)
-
+	TrainData, TrainTargets, TestData, TestTargets = LoadData()
+	# print("TrainData = ", TrainData.shape)
+	# print("TrainTargets = ", TrainTargets.shape)
 	# **************************************************************************
 	# parameters for the network
 	# **************************************************************************
-	NetStruct    = [10, 15, 22, 4]
-	Epoch        = 10
-	Batch        = 1
+	NetStruct = [10, 15, 22, 4]
+	Epoch = 50
+	Batch = 8
 	LearnRateEta = 0.001
-	Verbose      = True
-
+	Bias = [0.1, 0.2, 0.3, 0.4]
+	Verbose = True
+	InParams = { "NetStruct": NetStruct, "Epoch": Epoch, "Batch": Batch, \
+	"LearnRateEta": LearnRateEta, "Bias": Bias}
 	# **************************************************************************
 	# create a feedforward network
 	# **************************************************************************
-	NetFF  = BPFFNetwork(NetStruct=NetStruct, Epoch=Epoch, Batch=Batch,
-			LearnRateEta=LearnRateEta, Verbose=Verbose)
-
+	NetFF = BPFFNetwork(InParams, Verbose=Verbose)
 	# **************************************************************************
 	# train network
 	# **************************************************************************
 	NetFF.TrainNetwork(TrainData, TrainTargets)
-
 	# **************************************************************************
 	# test network
 	# **************************************************************************
