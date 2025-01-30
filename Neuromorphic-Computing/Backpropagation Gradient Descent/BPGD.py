@@ -280,7 +280,7 @@ if __name__ == "__main__":
 	# **************************************************************************
 	# load data to np array
 	# **************************************************************************
-	TrainData, TrainTargets, TestData, TestTargets = LoadData()
+	TrainData, TrainTargets, TestData, TestTargets = LoadData("Assets")
 	# print("TrainData = ", TrainData.shape)
 	# print("TrainTargets = ", TrainTargets.shape)
 	# **************************************************************************
