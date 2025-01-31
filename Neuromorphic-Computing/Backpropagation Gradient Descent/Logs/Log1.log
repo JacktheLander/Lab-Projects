@@ -1,4 +1,4 @@
-# This is clearly random, the system is not learning, adjust learning rate, if this makes no difference search for errors
+# This is clearly random, the system is not learning. Adjust learning rate, if this makes no difference search for errors.
 
 Epoch [1/50], Loss: 1.444535
 Epoch [2/50], Loss: 1.444335
