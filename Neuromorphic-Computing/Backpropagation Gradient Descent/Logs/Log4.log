@@ -1,4 +1,4 @@
-I increased learning rate by a factor of 10 to 0.01, which slightly improved accuracy
+# I increased learning rate by a factor of 10 to 0.01, which slightly improved accuracy
 
 Epoch [1/50], Loss: 0.354910
 Epoch [2/50], Loss: 0.225075
