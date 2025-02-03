@@ -56,8 +56,7 @@ def Softmax(Z):
 	Returns: softmax values
 	'''
 	"""Applies softmax function row-wise."""
-	ExpVals = np.exp(Z - np.max(Z, axis=1, keepdims=True)) # For numerical
-	stability
+	ExpVals = np.exp(Z - np.max(Z, axis=1, keepdims=True)) # For numerical stability
 	return np.divide(ExpVals, np.sum(ExpVals, axis=1, keepdims=True))
 
 # ******************************************************************************
@@ -99,8 +98,7 @@ def CrossEntropyDeri(Outputs, Targets):
 		Targets: a 2d matrix (mxn): m mini-batch, n expected values
 	Returns: average derivative of cross entropy loss function
 	'''
-	DeriVector = np.add(np.divide(-Targets, (Outputs * np.log(10))), \
-			np.divide((1.0 - Targets), (np.log(10) * (1 - Outputs))))
+	DeriVector = np.add(np.divide(-Targets, (Outputs * np.log(10))), np.divide((1.0 - Targets), (np.log(10) * (1 - Outputs))))
 	return DeriVector
 
 # ******************************************************************************
@@ -170,7 +168,7 @@ class BPFFNetwork:
 			np.random.randn(1, self.NetStruct[2]),  # Biases for Layer 2
 			np.random.randn(1, self.NetStruct[3])  # Biases for Layer 3
 		]
-		...
+		#...
 
 	# **************************************************************************
 	'''
@@ -184,20 +182,21 @@ class BPFFNetwork:
 		# **********************************************************************
 		FunctionName    = "::_Forward():"
 
+		self.a0 = x
 		# Layer 1 Input to Hidden1 using ReLU
 		self.z1 = DotSumAddBias(x, self.W[0], self.B[0])
-		a1 = ReLU(z1)
+		self.a1 = ReLU(self.z1)
 
 		# Layer 2 Hidden1 to Hidden2 using Sigmoid
-		self.z2 = DotSumAddBias(a1, self.W[1], self.B[1])
-		a2 = Sigmoid(z2)
+		self.z2 = DotSumAddBias(self.a1, self.W[1], self.B[1])
+		self.a2 = Sigmoid(self.z2)
 
 		# Layer 3 Hidden2 to Output using Softmax
-		self.z3 = DotSumAddBias(a2, self.W[2], self.B[2])
-		a3 = Softmax(z3)
+		self.z3 = DotSumAddBias(self.a2, self.W[2], self.B[2])
+		self.a3 = Softmax(self.z3)
 
-		return a3
-		...
+		return self.a3
+		#...
 
 	# **************************************************************************
 	'''
@@ -208,27 +207,44 @@ class BPFFNetwork:
 	def _BackProp(self, Outputs, TrainTargets):
 
 		# Error Calculations start with cost and pass back to each layer
-		cost = CrossEntropyDeri(Outputs, TrainTargets)
-		output_error = np.multiply(SoftmaxDerivative(np.sum(self.W[2], self.B[2])), cost)	#  Eq.s from module 3 pg. 55
-		h2_error = np.dot(np.multiply(SigmoidDerivative(np.sum(self.W[1], self.B[1])), self.W[2].T), output_error)
-		h1_error = np.dot(np.multiply(ReLUDerivative(np.sum(self.W[0], self.B[0])), self.W[1].T), h2_error)
+		cost = CrossEntropyDeri(Outputs, TrainTargets) # Previously I used cost to calculate output error with softmax derivative
+		output_error = Outputs - TrainTargets 	# Softmax derivative is not necessary it can be simplified to this eq
+		h2_error = np.multiply(SigmoidDerivative(self.z2), np.dot(output_error, self.W[2].T)) #  Eq.s from module 3 pg. 55
+		h1_error = np.multiply(ReLUDerivative(self.z1), np.dot(h2_error, self.W[1].T))
 
 		# Calculate Nablas
 		NablaBiases = [h1_error, h2_error, output_error]
 		NablaWeights = []
-		NablaWeights[0] = np.multiply(self.z1.T, h1_error)
-		NablaWeights[1] = np.multiply(self.z2.T, h2_error)
-		NablaWeights[2] = np.multiply(self.z3.T, output_error)
+
+		#print(f"h1_error shape: {h1_error.shape}, a1 shape: {self.a1.shape}, W[0] shape: {self.W[0].shape}")
+		#print(f"h2_error shape: {h2_error.shape}, a2 shape: {self.a2.shape}, W[1] shape: {self.W[1].shape}")
+		#print(f"output_error shape: {output_error.shape}, a3 shape: {self.a3.shape}, W[2] shape: {self.W[2].shape}")
+
+		NablaWeights.append(np.dot(self.a0.T, h1_error))
+		NablaWeights.append(np.dot(self.a1.T, h2_error))
+		NablaWeights.append(np.dot(self.a2.T, output_error))
+
+
+		#print(f"NablaWeights[0] shape: {NablaWeights[0].shape}, expected: (10, 15)")
+		#print(f"NablaWeights[1] shape: {NablaWeights[1].shape}, expected: (15, 22)")
+		#print(f"NablaWeights[2] shape: {NablaWeights[2].shape}, expected: (22, 4)")
 
 		self._UpdateLayerWeights(NablaWeights, NablaBiases)
-		...
+		return
+		#...
 
 	# **************************************************************************
 	def _UpdateLayerWeights(self, NablaWeights, NablaBiases):
 		# Update the weights by a factor of eta
-		self.W -= np.multiply(self.LearnRateEta, NablaWeights)
-		self.B -= np.multiply(self.LearnRateEta, NablaBiases)
-		...
+
+		for i in range(len(self.W)):
+			#print(f"Before update: Layer {i} - Weight Norm: {np.linalg.norm(self.W[i])}")
+			#print(NablaWeights[i])
+			self.W[i] -= self.LearnRateEta * NablaWeights[i]
+			self.B[i] -= self.LearnRateEta * np.sum(NablaBiases[i], axis=0, keepdims=True)
+			#print(f"After update: Layer {i} - Weight Norm: {np.linalg.norm(self.W[i])}")
+		return
+		#...
 
 	# **************************************************************************
 	'''
@@ -238,7 +254,43 @@ class BPFFNetwork:
 			TrainTargets[l, n]	-> l: the number of input data, n: output neurons	
 	'''
 	def TrainNetwork(self, TrainData, TrainTargets):
-		...
+		num_samples = TrainData.shape[0]  # Number of training samples
+		num_batches = num_samples // self.Batch  # Number of batches per epoch
+
+		for epoch in range(self.Epoch):
+			# Shuffle data for each epoch to improve generalization
+			indices = np.arange(num_samples)
+			#np.random.shuffle(indices)
+			TrainData, TrainTargets = TrainData[indices], TrainTargets[indices]
+
+			epoch_loss = 0  # To store total loss in this epoch
+
+			for i in range(num_batches):
+				# Extract mini-batch
+				start_idx = i * self.Batch
+				end_idx = start_idx + self.Batch
+				batch_data = TrainData[start_idx:end_idx]
+				batch_targets = TrainTargets[start_idx:end_idx]
+
+				# Forward pass
+				outputs = self._Forward(batch_data)
+
+				# Compute loss
+				loss = CrossEntropy(outputs, batch_targets)
+				epoch_loss += loss
+
+				# Backpropagation & weight update
+				self._BackProp(outputs, batch_targets)
+				#print(self.W)
+
+			# Logging (Verbose Mode)
+			if self.Verbose:
+				avg_loss = epoch_loss / num_batches
+				print(f"Epoch [{epoch + 1}/{self.Epoch}], Loss: {avg_loss:.6f}")
+
+		print("Training Completed!")
+		return
+		#...
 
 	# **************************************************************************
 	def _CalPerf(self, Outputs, TestLbls):
@@ -273,7 +325,24 @@ class BPFFNetwork:
 			TestTargets[k, n]	-> k: the number of input data, m: output neurons
 	'''
 	def TestNetwork(self, TestData, TestTargets):
-	   ...
+		num_samples = TestData.shape[0]  # Number of test samples
+
+		# Forward pass on the test set
+		outputs = self._Forward(TestData)
+
+		# Compute loss
+		loss = CrossEntropy(outputs, TestTargets)
+		avg_loss = loss / num_samples
+
+		# Compute accuracy using _CalPerf
+		accuracy = self._CalPerf(outputs, TestTargets)
+
+		# Print results if Verbose is enabled
+		if self.Verbose:
+			print(f"Test Loss: {avg_loss:.6f}, Accuracy: {accuracy:.2f}%")
+
+		return avg_loss, accuracy
+	#...
 
 # ******************************************************************************
 if __name__ == "__main__":
@@ -289,11 +358,10 @@ if __name__ == "__main__":
 	NetStruct = [10, 15, 22, 4]
 	Epoch = 50
 	Batch = 8
-	LearnRateEta = 0.001
+	LearnRateEta = 0.01
 	Bias = [0.1, 0.2, 0.3, 0.4]
 	Verbose = True
-	InParams = { "NetStruct": NetStruct, "Epoch": Epoch, "Batch": Batch, \
-	"LearnRateEta": LearnRateEta, "Bias": Bias}
+	InParams = { "NetStruct": NetStruct, "Epoch": Epoch, "Batch": Batch, "LearnRateEta": LearnRateEta, "Bias": Bias}
 	# **************************************************************************
 	# create a feedforward network
 	# **************************************************************************
