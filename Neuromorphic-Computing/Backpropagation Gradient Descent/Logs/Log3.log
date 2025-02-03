@@ -1,4 +1,4 @@
-There was an issue with how I was calculating output error at the start of backpropagation. After fixing it to: output_error = Outputs - TrainTargets, the network learned!
+# There was an issue with how I was calculating output error at the start of backpropagation. After fixing it to: output_error = Outputs - TrainTargets, the network learned!
 
 Epoch [1/50], Loss: 0.455948
 Epoch [2/50], Loss: 0.354660
