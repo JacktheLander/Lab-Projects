@@ -1,4 +1,4 @@
-voltage divider netlist
+Voltage Divider Netlist
 ********************************************************************************
 V1 in   0   1
 R1 in   out 1k
