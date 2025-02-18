@@ -1,1 +1,1 @@
-
+<img src="MemristiveDeviceModel.png" />
