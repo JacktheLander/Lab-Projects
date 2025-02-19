@@ -32,9 +32,106 @@ Biolek R2 Model for a Bipolar Threshold Memristive Device
 ********************************************************************************
 * W Function
 ********************************************************************************
-.FUNC W(Vin) { ({theta(Vin, b1)} * {theta(1 - (x / Roff), b2)}) + ({theta(-Vin, b1)} * {theta((x / Ron) - 1, b2)}) }
+.FUNC W(Vin, x) { ({theta(Vin, b1)} * {theta(1 - (x / Roff), b2)}) + ({theta(-Vin, b1)} * {theta((x / Ron) - 1, b2)}) }
 
 ********************************************************************************
 * UpdateValues Function
 ********************************************************************************
 .FUNC Update(Vin, dt) 
+
+********************************************************************************
+* IV Response - Hyperbolic sine due to MIM structure
+* Use TERNARY_FCN(x, y, x) for ngspice and IF(x, y, z) for other Pspice versions
+********************************************************************************
+.FUNC FuncIV(v, x) {TERNARY_FCN(v >= 0, a1*x*sinh(b*v), a2*x*sinh(b*v))}
+
+********************************************************************************
+* The Internal State Variable x(t)
+********************************************************************************
+.IC V(x)=x0
+Cx x 0 {1}
+Gx 0 x value = { {f(V(p, n))} * {W(V(p, n), V(x))} }
+
+********************************************************************************
+* dependent current source for memristor IV response
+********************************************************************************
+Gm p n value = {FuncIV(V(p,n), V(x))}
+
+********************************************************************************
+.ENDS BiolekR2
+
+
+
+********************************************************************************
+********************* Parameters for Signal Source(s) **************************
+********************************************************************************
+* SINE    : V1 1 0 DC 0 SIN(OFF AMPL FREQ TD THETA)
+* PULSE   : V1 1 0 DC 0 PULSE(VLO VHI TD TR TF PW PER)
+* DC      : V1 1 0 1.2 DC
+* TRIANGLE: V1 1 0 DC 0 PULSE(VLO VHI TD TR TF PW PER)
+* SQUARE  : V1 1 0 DC 0 PULSE(VLO VHI TD TR TF PW PER)
+********************************************************************************
+* V1: Sine, ampl = 0.5, freq = 100, off = 0
+********************************************************************************
+.PARAM  Vampl = 0.5
+.PARAM  Freq  = 100
+********************************************************************************
+Vs 1  0 DC 0 SIN(0 {Vampl} {Freq})
+
+********************************************************************************
+********************* General Options for Xyce *********************************
+********************************************************************************
+* AztecOO is the default linear solver for parallel execution. However, AztecOO
+* doesn't work at this point. KLU is selected for linear solver instead. It is
+* serial execution. Method of Gear is to fix the problem with exceeding limits.
+********************************************************************************
+*.OPTIONS LINSOL TYPE=KLU
+*.OPTIONS TIMEINT METHOD=GEAR
+
+********************************************************************************
+******************* Parameters for transient analysis **************************
+********************************************************************************
+* Analysis type         : Transient Analysis
+* Time Step             : 1us
+* Number of Simulations : 10000
+* Start Transient Time  : 0us
+* Stop Transient Time   : 10000us (Time Step * Number of Simulation)
+* Transient Option      : .TRAN TSTEP TSTOP  <TSTART <TMAX(step)> > <UIC>
+********************************************************************************
+.TRAN 1us 10ms 0us 1us
+
+********************************************************************************
+************************ Network Connection ************************************
+********************************************************************************
+* Network Type          : Crossbar
+* Rows (inputs)         : 1
+* Columns (outputs)     : 1
+* Number of Modules     : 1 (X is the memristor subcircuit)
+********************************************************************************
+X0  1  0    YakopcicMemRes
+
+********************************************************************************
+********************** Measurements for analysis *******************************
+********************************************************************************
+* Measurement Type      : SAVE
+* Measurement Interval  : from 0us to 10000us
+* Measured Elements     : V(1)
+* Measured Elements     : I(V1)
+********************************************************************************
+*.PRINT TRAN FORMAT=csv FILE=MemResOblea.csv
+*+	 V(1) I(V1) V(X0:X)
+********************************************************************************
+* the following controls are specifically for ngspice. Other Pspice version can
+* have different sets of controls.
+********************************************************************************
+.CONTROL
+*SET wr_singlescale
+*SET wr_vecnames
+*OPTION numdgt =7
+RUN
+*WRDATA BiolekR2.csv V(1) I(V1) V(X0.x)
+PLOT -I(Vs) vs V(1) retraceplot
+.ENDC
+********************************************************************************
+.END
+
