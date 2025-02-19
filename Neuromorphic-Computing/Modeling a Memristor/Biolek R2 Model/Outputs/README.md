@@ -1,3 +1,8 @@
+# Ngspice Outputs
+<div align="center">
+  <img src="BiolekR2SpiceOutputs.jpg">
+</div>
+
 # Python Matplotlib Outputs
 <div align="center">
   <img src="MemResBiolekR2IV.jpg" width="45%" alt="IV Curve 1">
