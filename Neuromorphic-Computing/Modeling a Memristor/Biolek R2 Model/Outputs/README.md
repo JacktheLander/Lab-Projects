@@ -1,6 +1,6 @@
 # Ngspice Outputs
 <div align="center">
-  <img src="BiolekR2SpiceOutputs.jpg">
+  <img src="BiolekR2SpiceOutputs.png">
 </div>
 
 # Python Matplotlib Outputs
