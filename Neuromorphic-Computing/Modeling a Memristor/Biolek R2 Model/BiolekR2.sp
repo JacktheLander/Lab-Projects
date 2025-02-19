@@ -6,12 +6,12 @@ Biolek R2 Model for a Bipolar Threshold Memristive Device
 * n - bottom electrode
 * x - External connection to plot state variable that is not used otherwise
 ********************************************************************************
-.SUBCKT BiolekR2 p n PARAMS: xinit=0.11
+.SUBCKT BiolekR2 p n
 
 ********************************************************************************
 * Device Constants
 *********************************************************************************
-.PARAMS Ron=1k Roff=10k Rinit=(Ron+Roff)/2 Beta=1e13 Vth=4.6V b1=10u b2=10u x0={xinit}
+.PARAMS Ron=1k Roff=10k Rinit=(Ron+Roff)/2 Beta=1e13 Vth=4.6V b1=10u b2=10u x0={Rinit}
 .PARAM Cval=1
 
 ********************************************************************************
