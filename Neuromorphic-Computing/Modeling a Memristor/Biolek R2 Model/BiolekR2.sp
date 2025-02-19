@@ -125,6 +125,7 @@ X0  1  0    BiolekR2
 RUN
 *WRDATA BiolekR2.csv V(1) I(V1) V(X0.x)
 PLOT -I(Vs) vs V(1) retraceplot
+PLOT v(x0.x)
 .ENDC
 ********************************************************************************
 .END
