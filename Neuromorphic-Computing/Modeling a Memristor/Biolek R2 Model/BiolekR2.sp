@@ -65,7 +65,7 @@ Gm p n value = {FuncIV(V(p,n), V(x))}
 * TRIANGLE: V1 1 0 DC 0 PULSE(VLO VHI TD TR TF PW PER)
 * SQUARE  : V1 1 0 DC 0 PULSE(VLO VHI TD TR TF PW PER)
 ********************************************************************************
-* V1: Sine, ampl = 0.5, freq = 100, off = 0
+* V1: Sine, ampl = 5V, freq = 50MHz, off = 0
 ********************************************************************************
 .PARAM  Vampl = 5
 .PARAM  Freq  = 50MEG
