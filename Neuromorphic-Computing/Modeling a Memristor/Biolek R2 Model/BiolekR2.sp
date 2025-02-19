@@ -35,15 +35,9 @@ Biolek R2 Model for a Bipolar Threshold Memristive Device
 .FUNC W(Vin, x) { ({theta(Vin, b1)} * {theta(1 - (x / Roff), b2)}) + ({theta(-Vin, b1)} * {theta((x / Ron) - 1, b2)}) }
 
 ********************************************************************************
-* UpdateValues Function
+* IV Response
 ********************************************************************************
-.FUNC Update(Vin, dt) 
-
-********************************************************************************
-* IV Response - Hyperbolic sine due to MIM structure
-* Use TERNARY_FCN(x, y, x) for ngspice and IF(x, y, z) for other Pspice versions
-********************************************************************************
-.FUNC FuncIV(v, x) {TERNARY_FCN(v >= 0, a1*x*sinh(b*v), a2*x*sinh(b*v))}
+.FUNC FuncIV(v, x) {v / x}
 
 ********************************************************************************
 * The Internal State Variable x(t)
