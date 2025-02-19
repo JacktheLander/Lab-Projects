@@ -92,7 +92,7 @@ Vs 1  0 DC 0 SIN(0 {Vampl} {Freq})
 * Stop Transient Time   : 10000us (Time Step * Number of Simulation)
 * Transient Option      : .TRAN TSTEP TSTOP  <TSTART <TMAX(step)> > <UIC>
 ********************************************************************************
-.TRAN 1us 10ms 0us 1us
+.TRAN 0.1n 0.1u
 
 ********************************************************************************
 ************************ Network Connection ************************************
