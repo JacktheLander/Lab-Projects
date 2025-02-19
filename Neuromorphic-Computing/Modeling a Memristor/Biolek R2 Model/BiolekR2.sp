@@ -67,8 +67,8 @@ Gm p n value = {FuncIV(V(p,n), V(x))}
 ********************************************************************************
 * V1: Sine, ampl = 0.5, freq = 100, off = 0
 ********************************************************************************
-.PARAM  Vampl = 0.5
-.PARAM  Freq  = 100
+.PARAM  Vampl = 5
+.PARAM  Freq  = 50MEG
 ********************************************************************************
 Vs 1  0 DC 0 SIN(0 {Vampl} {Freq})
 
@@ -86,10 +86,8 @@ Vs 1  0 DC 0 SIN(0 {Vampl} {Freq})
 ******************* Parameters for transient analysis **************************
 ********************************************************************************
 * Analysis type         : Transient Analysis
-* Time Step             : 1us
-* Number of Simulations : 10000
-* Start Transient Time  : 0us
-* Stop Transient Time   : 10000us (Time Step * Number of Simulation)
+* Time Step             : 0.1ns
+* Stop Transient Time   : 0.1us (Time Step * Number of Simulation)
 * Transient Option      : .TRAN TSTEP TSTOP  <TSTART <TMAX(step)> > <UIC>
 ********************************************************************************
 .TRAN 0.1n 0.1u
