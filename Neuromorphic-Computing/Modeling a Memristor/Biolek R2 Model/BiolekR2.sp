@@ -108,7 +108,7 @@ Vs 1  0 DC 0 SIN(0 {Vampl} {Freq})
 * Columns (outputs)     : 1
 * Number of Modules     : 1 (X is the memristor subcircuit)
 ********************************************************************************
-X0  1  0    YakopcicMemRes
+X0  1  0    BiolekR2
 
 ********************************************************************************
 ********************** Measurements for analysis *******************************
