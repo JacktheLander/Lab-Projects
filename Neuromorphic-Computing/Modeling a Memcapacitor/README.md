@@ -1,4 +1,4 @@
-#I tried to replicate Biolek's C4 model for a Bipolar Memcapacitive System with Threshold
+# I tried to replicate Biolek's C4 model for a Bipolar Memcapacitive System with Threshold
 
 [Source](https://www.researchgate.net/publication/248382146_Reliable_SPICE_Simulations_of_Memristors_Memcapacitors_and_Meminductors?enrichId=rgreq-2607b716844d0292c7f8da1254780775-XXX&enrichSource=Y292ZXJQYWdlOzI0ODM4MjE0NjtBUzoxMTEyNDA5MTk2NTQ0MDBAMTQwMzUzMzMxMTE3MA%3D%3D&el=1_x_3&_esc=publicationCoverPdf)
 
