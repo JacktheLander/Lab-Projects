@@ -2,7 +2,7 @@
 
 [Source](https://www.researchgate.net/publication/248382146_Reliable_SPICE_Simulations_of_Memristors_Memcapacitors_and_Meminductors?enrichId=rgreq-2607b716844d0292c7f8da1254780775-XXX&enrichSource=Y292ZXJQYWdlOzI0ODM4MjE0NjtBUzoxMTEyNDA5MTk2NTQ0MDBAMTQwMzUzMzMxMTE3MA%3D%3D&el=1_x_3&_esc=publicationCoverPdf)
 
-This is a version of the C4 model (4.4, Fig 17.b) I made based off of Biolek's code and equations (48, 49, 50, 51) from his paper, but I could not get it to successfully run without implementing 2 additional resistors Rp, and Rgnd.
+This is a version of the C4 model (4.4, Fig. 17.b) I made based off of Biolek's code and equations (48, 49, 50, 51) from his paper, but I could not successfully duplicate his results (Fig. 18).
 
 The Rp resistor (10m Ohm) is in parallel to the memcapacitor, which provides a low impedance path for allowing leakage current to flow. It also fixes the Spice requirement that their must be a DC path to ground.
 
