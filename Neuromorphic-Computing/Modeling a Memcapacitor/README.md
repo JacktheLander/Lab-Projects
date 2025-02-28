@@ -13,12 +13,6 @@ The Rp resistor (10m Ohm) is in parallel to the memcapacitor, which provides a l
 
 With Biolek's model there is a notable hysteresis response, but it is not precise. This is likely a consequence of the internal state variable x only downstepping, when it should be a square wave. Charge is also different from expected, as it is perfectly sinusoidal, when it should have periodical pauses.
 
-<div align="center">
-  <iframe src="Outputs/BiolekC4_Hysteresis.pdf" width="30%"></iframe>
-  <iframe src="Outputs/BiolekC4_X.pdf" width="30%"></iframe>
-  <iframe src="Outputs/BiolekC4_Q.pdf" width="30%"></iframe>
-</div>
-
 To try and identify what was going wrong with the model, I compared my code with Biolek's, as well as with the equations, but found no errors. I also tried adjusting the parameters, but this was not solving the problems.
 After asking GPT, it gave me the code in test.sp. This modifies Biolek's equations, using a signum function in f to force the symmetrical scaling of the variables, so that x can reach the desired square behavior. W was also modified so that the up and down steps of x are equivalent. Consequently, we can see improvement in the internal state of x as it is now periodically increasing and decreasing as we expected, but not in the square wave function we are expecting. Charge Q has also improved as in the first cycle we see the sinusoid pause slightly.
 
