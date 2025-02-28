@@ -5,7 +5,7 @@
 This is a version of the C4 model (4.4, Fig. 17.b) I made based off of Biolek's code and equations (48, 49, 50, 51) from his paper, but I could not successfully duplicate his results (Fig. 18).
 
 <div align="center">
-  <img src="Sources/ModelSchematic.png" width="40%" />
+  <img src="Sources/ModelSchematic.png" width="35%" />
   <img src="Sources/ExpectedOutputs.png" width="30%" />
 </div>
 
