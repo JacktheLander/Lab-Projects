@@ -6,7 +6,7 @@ This is a version of the C4 model (4.4, Fig. 17.b) I made based off of Biolek's 
 
 <div align="center">
   <img src="Sources/ModelSchematic.png" width="30%" />
-  <img src="Sources/ExpectedOutput.png" width="30%" />
+  <img src="Sources/ExpectedOutputs.png" width="30%" />
 </div>
 
 The Rp resistor (10m Ohm) is in parallel to the memcapacitor, which provides a low impedance path for allowing leakage current to flow. It also fixes the Spice requirement that their must be a DC path to ground.
