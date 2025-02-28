@@ -4,6 +4,11 @@
 
 This is a version of the C4 model (4.4, Fig. 17.b) I made based off of Biolek's code and equations (48, 49, 50, 51) from his paper, but I could not successfully duplicate his results (Fig. 18).
 
+<div align="center">
+  <img src="Sources/ModelSchematic.png" width="30%" />
+  <img src="Sources/ExpectedOutput.png" width="30%" />
+</div>
+
 The Rp resistor (10m Ohm) is in parallel to the memcapacitor, which provides a low impedance path for allowing leakage current to flow. It also fixes the Spice requirement that their must be a DC path to ground.
 
 With Biolek's model there is a notable hysteresis response, but it is not precise. This is likely a consequence of the internal state variable x only downstepping, when it should be a square wave. Charge is also different from expected, as it is perfectly sinusoidal, when it should have periodical pauses.
