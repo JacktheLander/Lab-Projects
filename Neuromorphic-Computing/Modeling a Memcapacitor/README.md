@@ -14,9 +14,9 @@ The Rp resistor (10m Ohm) is in parallel to the memcapacitor, which provides a l
 With Biolek's model there is a notable hysteresis response, but it is not precise. This is likely a consequence of the internal state variable x only downstepping, when it should be a square wave. Charge is also different from expected, as it is perfectly sinusoidal, when it should have periodical pauses.
 
 <div align="center">
-  <img src="Outputs/BiolekC4_Hysteresis.png" width="30%" />
-  <img src="Outputs/BiolekC4_X.png" width="30%" />
-  <img src="Outputs/BiolekC4_Q.png" width="30%" />
+  <img src="Outputs/BiolekC4_Hysteresis.pdf" width="30%" />
+  <img src="Outputs/BiolekC4_X.pdf" width="30%" />
+  <img src="Outputs/BiolekC4_Q.pdf" width="30%" />
 </div>
 
 To try and identify what was going wrong with the model, I compared my code with Biolek's, as well as with the equations, but found no errors. I also tried adjusting the parameters, but this was not solving the problems.
