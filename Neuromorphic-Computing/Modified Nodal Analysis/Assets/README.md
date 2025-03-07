@@ -1,8 +1,8 @@
-# Figure 1
+# Circuit 1
 <img src="Figure1.png" />
 
-# Figure 2
+# Circuit 2
 <img src="Figure2.png" />
 
-# Figure 3
+# Circuit 3
 <img src="Figure3.png" />
