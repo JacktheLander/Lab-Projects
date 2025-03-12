@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <p align="center">
-      <img src="Assets/Figure3.png" width="400" />
-      <img src="Outputs/SquareSourceOutput.png" width="400" />
-    </p>
     <title>Netlist and Matrices</title>
     <style>
         body {
