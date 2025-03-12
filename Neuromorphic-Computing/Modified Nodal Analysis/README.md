@@ -41,7 +41,7 @@ Ax = Z      A - Coefficient Matrix, x - Dependent Variables, Z - Independent Sou
 ## Vector Z
 
 | Symbol | Value  |
-|---------------------------------------------------------------|
+|-------|---------------------------------------------------------------|
 | 0                                                           | 0.0  |
 | C1/dt * V2Prev                                              | 0.0  |
 | C2/dt * V3Prev + C3/dt * (V3Prev - V4Prev)                  | 0.0  |
