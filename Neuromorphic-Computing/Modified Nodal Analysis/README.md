@@ -2,7 +2,9 @@
       <img src="Assets/Figure3.png" width="400" />
       <img src="Outputs/SquareSourceOutput.png" width="400" />
 </p>
-    
+
+Ax = Z      A - Coefficient Matrix, x - Dependent Variables, Z - Independent Sources
+
 # Netlist and Matrices
 
 ## Netlist
@@ -28,23 +30,23 @@
 
 ## Vector X
 
-| Index | Value  |
+| Symbol | Value  |
 |-------|--------|
-| 0     | V1     |
-| 1     | V2     |
-| 2     | V3     |
-| 3     | V4     |
-| 4     | IV1    |
+| V1     | 1.000000 |
+| V2     | 0.057202 |
+| V3     | 0.001150 |
+| V4     | 0.001127 |
+| IV1    | -0.000471 |
 
 ## Vector Z
 
-| Index | Value  |
-|-------|---------------------------------------------------------------|
-| 0     | 0                                                           |
-| 1     | C1/dt * V2Prev                                              |
-| 2     | C2/dt * V3Prev + C3/dt * (V3Prev - V4Prev)                  |
-| 3     | C3/dt * (-V3Prev + V4Prev)                                  |
-| 4     | VS                                                          |
+| Symbol | Value  |
+|---------------------------------------------------------------|
+| 0                                                           | 0.0  |
+| C1/dt * V2Prev                                              | 0.0  |
+| C2/dt * V3Prev + C3/dt * (V3Prev - V4Prev)                  | 0.0  |
+| C3/dt * (-V3Prev + V4Prev)                                  | 0.0  |
+| VS                                                          | 1.0  |
 
 ## Matrix A (Numerical)
 
