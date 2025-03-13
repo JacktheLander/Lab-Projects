@@ -49,6 +49,5 @@ _ |                #                                | 149  Elapsed Time: 0:18:58
 
 ### **Final Test Score**
 ...__main__                 : training output layer ... <br>
-...__main__                 : test score = <0.9757> ... <br>
-
+...__main__                 : test score = <0.9757> ... 🎯<br>
 ---
