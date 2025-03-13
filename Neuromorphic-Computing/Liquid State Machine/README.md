@@ -10,28 +10,40 @@
 ---
 
 ### **Training Process**
-...main : running train batches ... / | # | 24 Elapsed Time: 0:03:00 train batches completed: 24
-
-| # | 49 Elapsed Time: 0:06:11 train batches completed: 49 \| # | 74 Elapsed Time: 0:09:22 train batches completed: 74 | | # | 99 Elapsed Time: 0:12:33 train batches completed: 99 / | #| 124 Elapsed Time: 0:15:45 train batches completed: 124
-| # | 149 Elapsed Time: 0:18:58 train batches completed: 149 \ | # | 174 Elapsed Time: 0:22:10 train batches completed: 174 | | #| 199 Elapsed Time: 0:25:23 train batches completed: 199 / | # | 224 Elapsed Time: 0:28:37 train batches completed: 224 | | # | 234 Elapsed Time: 0:29:52
+...__main__                 : running train batches ... <br>
+/ |         #                                        |  24  Elapsed Time: 0:03:00  train batches completed:  24 <br>
+- |                #                                 |  49  Elapsed Time: 0:06:11  train batches completed:  49 <br>
+\ |                         #                        |  74  Elapsed Time: 0:09:22  train batches completed:  74 <br>
+| |                                      #           |  99  Elapsed Time: 0:12:33  train batches completed:  99 <br>
+/ |                                                # | 124  Elapsed Time: 0:15:45  train batches completed: 124 <br>
+- |                #                                | 149  Elapsed Time: 0:18:58  train batches completed: 149 <br>
+\ |                    #                            | 174  Elapsed Time: 0:22:10  train batches completed: 174 <br>
+| |                                                # | 199  Elapsed Time: 0:25:23  train batches completed: 199 <br>
+/ |                       #                         | 224  Elapsed Time: 0:28:37  train batches completed: 224 <br>
+| |     #                                           | 234  Elapsed Time: 0:29:52 <br>
 
 ---
 
 ### **Training Summary**
-...main : running time of training epoch = <1798.3510> ...
+...__main__                 : running time of training epoch = <1798.3510> ... <br>
 
 ---
 
 ### **Testing Process**
-...main : running test batches ... / | # | 24 Elapsed Time: 0:03:23 test batches completed: 24 | | # | 39 Elapsed Time: 0:05:25
+...__main__                 : running test batches ... <br>
+/ |                                 #                |  24  Elapsed Time: 0:03:23  test batches completed:  24 <br>
+| |                                        #         |  39  Elapsed Time: 0:05:25 <br>
 
 ---
 
 ### **Spiking Statistics**
-...main : mean in spiking (train) = <0.00451575> ... ...main : mean in spiking (test) = <0.00454212> ... ...main : mean LSM spiking (train) = <0.54636413> ... ...main : mean LSM spiking (test) = <0.54675174> ...
-
+...__main__                 : mean in spiking (train) = <0.00451575> ... <br>
+...__main__                 : mean in spiking (test) = <0.00454212> ... <br>
+...__main__                 : mean LSM spiking (train) = <0.54636413> ... <br>
+...__main__                 : mean LSM spiking (test) = <0.54675174> ... <br>
 ---
 
 ### **Final Test Score**
-...main : training output layer ... ...main : test score = <0.9757> ...
+...__main__                 : training output layer ... <br>
+...__main__                 : test score = <0.9757> ... <br>
 ---
