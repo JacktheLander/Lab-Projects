@@ -1,2 +1,2 @@
-### Building a Neuron
+# Building a Neuron
 <img src="Neuron.jpg" />
