@@ -1,3 +1,7 @@
+# Echo State Network
+<img src="ESN.png" />
+
+---
 ## Training Log Ouput
 
 ### **Dataset Initialization**  
