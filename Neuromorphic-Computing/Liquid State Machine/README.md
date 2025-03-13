@@ -41,9 +41,11 @@
 ...__main__                 : mean in spiking (test) = <0.00454212> ... <br>
 ...__main__                 : mean LSM spiking (train) = <0.54636413> ... <br>
 ...__main__                 : mean LSM spiking (test) = <0.54675174> ... <br>
+
 ---
 
 ### **Final Test Score**
 ...__main__                 : training output layer ... <br>
 ...__main__                 : test score = <0.9757> ... <br>
+
 ---
