@@ -9,7 +9,7 @@
 ### **Training Process**
 ...main : running train batches ... / | # | 24 Elapsed Time: 0:03:00 train batches completed: 24
 
-| # | 49 Elapsed Time: 0:06:11 train batches completed: 49 \ | # | 74 Elapsed Time: 0:09:22 train batches completed: 74 | | # | 99 Elapsed Time: 0:12:33 train batches completed: 99 / | #| 124 Elapsed Time: 0:15:45 train batches completed: 124
+| # | 49 Elapsed Time: 0:06:11 train batches completed: 49 \| # | 74 Elapsed Time: 0:09:22 train batches completed: 74 | | # | 99 Elapsed Time: 0:12:33 train batches completed: 99 / | #| 124 Elapsed Time: 0:15:45 train batches completed: 124
 | # | 149 Elapsed Time: 0:18:58 train batches completed: 149 \ | # | 174 Elapsed Time: 0:22:10 train batches completed: 174 | | #| 199 Elapsed Time: 0:25:23 train batches completed: 199 / | # | 224 Elapsed Time: 0:28:37 train batches completed: 224 | | # | 234 Elapsed Time: 0:29:52
 
 ---
