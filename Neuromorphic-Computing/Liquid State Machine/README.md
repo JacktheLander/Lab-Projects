@@ -2,7 +2,10 @@
 ## Training Log Output
 
 ### Dataset Loading
-...main : loading Datasets from <\PycharmProjects\Neuromorphic Computing\Datasets> ... ...main : caching Datasets to <./cache\nmnist\train> and <./cache\nmnist\test> ... ...main : running with <cpu> device ...main : average fan out = <14.1720> ...
+...__main__                 : loading Datasets from <\PycharmProjects\Neuromorphic Computing\Datasets> ... <br>
+...__main__                 : caching Datasets to <./cache\nmnist\train> and <./cache\nmnist\test> ... <br>
+...__main__                 : running with <cpu> device <br>
+...__main__                 : average fan out = <14.1720> ... <br>
 
 ---
 
