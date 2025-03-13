@@ -1,4 +1,4 @@
-## MNIST Dataset Processing Log  
+## Training Log Ouput
 
 ### **Dataset Initialization**  
 ==> Instantiating **<Mnist>**... <br>
