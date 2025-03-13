@@ -1,4 +1,7 @@
 # Liquid State Machine
+<img src="LSM.png" />
+
+---
 ## Training Log Output
 
 ### Dataset Loading
