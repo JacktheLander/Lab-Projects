@@ -12,11 +12,11 @@
 ### **Training Process**
 ...__main__                 : running train batches ... <br>
 / |         #                                        |  24  Elapsed Time: 0:03:00  train batches completed:  24 <br>
-- |                #                                 |  49  Elapsed Time: 0:06:11  train batches completed:  49 <br>
+_ |                #                                 |  49  Elapsed Time: 0:06:11  train batches completed:  49 <br>
 \ |                         #                        |  74  Elapsed Time: 0:09:22  train batches completed:  74 <br>
 | |                                      #           |  99  Elapsed Time: 0:12:33  train batches completed:  99 <br>
 / |                                                # | 124  Elapsed Time: 0:15:45  train batches completed: 124 <br>
-- |                #                                | 149  Elapsed Time: 0:18:58  train batches completed: 149 <br>
+_ |                #                                | 149  Elapsed Time: 0:18:58  train batches completed: 149 <br>
 \ |                    #                            | 174  Elapsed Time: 0:22:10  train batches completed: 174 <br>
 | |                                                # | 199  Elapsed Time: 0:25:23  train batches completed: 199 <br>
 / |                       #                         | 224  Elapsed Time: 0:28:37  train batches completed: 224 <br>
