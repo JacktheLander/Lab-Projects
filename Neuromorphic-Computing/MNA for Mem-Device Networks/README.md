@@ -1,5 +1,5 @@
 # Small World Power Law Network
-<img src="Networks/SWPL.png" />
+<img src="Networks/SWPL.png" width="700/>
 A neural network configured to model neuron patterns in the human brain.
 
 ---
