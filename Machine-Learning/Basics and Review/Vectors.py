@@ -84,3 +84,32 @@ print("L1 norm:", L1)
 
 L2 = np.linalg.norm(b, ord=2)
 print("L2 norm:", L2)
+
+## Inner Products
+w = np.array([1, 2, 3, 4])
+print("\nw:", w)
+v = np.array([2, 4, 6, 8])
+print("v:", v)
+
+# Calculate the inner product
+inner = np.inner(w, v)
+
+print("Inner product:", inner)
+
+# w1 and v1 are orthogonal arrays and their inner product is 0
+w1 = np.array([1, 1, 0, -1])
+v1 = np.array([1, 0, 1, 1])
+print("w1:",w1)
+print("v1:",v1)
+
+print("dot product:", np.dot(w1,v1))
+print("inner product:", np.inner(w1, v1))
+
+# w2 and v2 are orthogonal matrices but their inner product is not 0
+w2 = = np.array([[1, 0], [0, 1]])
+v2 = np.array([[0, 1], [-1, 0]])
+print("w2:",w2)
+print("v2:",v2)
+
+print("dot product:", np.dot(w2,v2))
+print("inner product:", np.inner(w2, v2))
