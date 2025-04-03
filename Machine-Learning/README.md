@@ -1,1 +1,1 @@
-In Machine Learning by Professor Davoudi, we are learning about building machine learning algorithms with Scikit-learn and TensorFlow. We used effective methods for analyzing large datasets to develop predictive models using Xilinx PYNQ boards
+In Machine Learning by Professor Davoudi, we learned about building machine learning algorithms with Scikit-learn and TensorFlow. We used effective methods for analyzing large datasets to develop predictive models using Xilinx PYNQ boards
