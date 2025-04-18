@@ -142,3 +142,41 @@ multRegModel.coef_
 
 # Predict the price of a 2,500 square foot rental with 2 bedrooms and 2 bathrooms
 multRegModel.predict([[2500, 2, 2]])
+
+
+# Predicting Happiness
+
+# Load the world happiness dataset
+happiness = pd.read_csv("world_happiness_2017.csv")
+
+# Define input and output features
+X = happiness[['economy_gdp_per_capita']]
+y = happiness[['happiness_score']]
+
+# Initialize a simple linear regression model
+happinessModel = LinearRegression()
+
+# Fit a simple linear regression model
+happinessModel.fit(X, y)
+
+# Estimated intercept weight
+happinessModel.intercept_
+
+# Estimated weight for economy_gdp_per_capita feature
+happinessModel.coef_
+
+X = happiness[['generosity']]
+SLRModel = LinearRegression()
+
+# Fit a simple linear regression model
+SLRModel.fit(X,y)
+
+# Estimated intercept and generosity feature weight
+SLRModel.intercept_
+SLRModel.coef_
+
+# Predict the happiness score for a country with freedom = 0.4 and health_life_expectancy = 0.8
+X = happiness[['freedom', 'health_life_expectancy']]
+SLRModel = LinearRegression()
+SLRModel.fit(X, y)
+SLRModel.predict([[0.4, 0.8]])
