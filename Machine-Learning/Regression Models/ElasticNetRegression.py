@@ -139,3 +139,42 @@ plt.legend(loc='upper right', fontsize=14)
 
 plt.show()
 
+
+## Predicting World Happiness
+# Load the world happiness dataset
+happiness = pd.read_csv("world_happiness_2017.csv")
+
+# Define input and output features
+X = happiness[['family']]
+y = happiness[['happiness_score']]
+
+# Scale the input features
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
+
+# Initialize an elastic net regression model
+eNetModel = ElasticNet()
+
+# Fit the model 
+eNetModel.fit(X, y)
+print(eNetModel.intercept_)
+print(eNetModel.coef_)
+
+X = happiness[['freedom', 'trust_government_corruption']]
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
+
+# Initialize an elastic net regression model with alpha=2 and l1_ratio=0.84
+eNetModel = ElasticNet(alpha=2, l1_ratio=0.84)
+eNetModel.fit(X,y)
+print(eNetModel.intercept_)
+print(eNetModel.coef_)
+
+X = happiness[['economy_gdp_per_capita', 'freedom']]
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
+modelENet = ElasticNet()
+modelENet.fit(X,y)
+print(modelENet.intercept_)
+print(modelENet.coef_)
+print(modelENet.predict([[0.98, 0.48]]))
