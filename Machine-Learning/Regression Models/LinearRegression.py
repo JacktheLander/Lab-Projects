@@ -183,7 +183,7 @@ SLRModel.predict([[0.4, 0.8]])
 
 
 ## Predicting Well-Being
-# Load the dataset
+
 wellbeing = pd.read_csv('city_wellbeing.csv')
 wellbeing.head()
 X = wellbeing[['NAI']].values
@@ -194,3 +194,23 @@ print(LRModel.intercept_)
 print(LRModel.coef_)
 LRModel.predict([[-0.76]])
 wellbeing.loc[[42]]
+
+p = sns.regplot(data=wellbeing, x="NAI", y="WBI_Physical", ci=None)
+p.set_xlabel('Natural Amenities Index', fontsize=14)
+p.set_ylabel('Physical Well-Being Index', fontsize=14)
+plt.show()
+
+# Residuals and prediction values
+yPredicted = LRModel.predict(X)
+resid = y - yPredicted
+
+# Histogram of residuals
+h = sns.histplot(x=np.ravel(resid))
+h.set_xlabel('Residual', fontsize=14)
+plt.show()
+
+# Plot the residuals vs predicted values
+p = sns.scatterplot(x=np.ravel(yPredicted) , y=np.ravel(resid))
+p.set_xlabel('Prediction', fontsize=14)
+p.set_ylabel('Residual', fontsize=14)
+plt.show()
