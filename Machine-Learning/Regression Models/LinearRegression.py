@@ -180,3 +180,17 @@ X = happiness[['freedom', 'health_life_expectancy']]
 SLRModel = LinearRegression()
 SLRModel.fit(X, y)
 SLRModel.predict([[0.4, 0.8]])
+
+
+## Predicting Well-Being
+# Load the dataset
+wellbeing = pd.read_csv('city_wellbeing.csv')
+wellbeing.head()
+X = wellbeing[['NAI']].values
+y = wellbeing[['WBI_Physical']].values
+LRModel = LinearRegression()
+LRModel.fit(X,y)
+print(LRModel.intercept_)
+print(LRModel.coef_)
+LRModel.predict([[-0.76]])
+wellbeing.loc[[42]]
