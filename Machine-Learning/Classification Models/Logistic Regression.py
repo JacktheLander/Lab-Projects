@@ -113,3 +113,94 @@ print('Probabilities: {}'.format(probs))
 classes = heartModel.predict(X)
 
 print('Classes: {}'.format(classes))
+
+
+
+# Load the dataset
+train = pd.read_csv('AustraliaTrain.csv')
+train.head()
+
+# List all features
+train.columns
+
+# Load the codebook
+train_codebook = pd.read_csv('AustraliaTrain_codebook.csv')
+train_codebook
+
+# How satisfied are the surveyed passengers?
+p = sns.countplot(data=train, x='prSat')
+p.set_xlabel('Satisfaction', fontsize=14)
+plt.show()
+
+# counts for prSat
+train['prSat'].value_counts()
+
+# prSat values
+list(train_codebook.loc[train_codebook.Code=='prSat', 'Values'])
+
+# Satisfaction based on whether or not the peak fare was paid
+p=g = sns.countplot(data=train, hue="prSat", x="peakfare")
+p.set_xlabel('Paid peak fare', fontsize=14)
+p.set_xticklabels(["No", "Yes"])
+p.get_legend().set_title("Satisfaction")
+plt.show()
+
+# Get the cross-tabulated counts
+pd.crosstab(train['prSat'], train['peakfare'], margins=True)
+
+# prSat proportions within peakfare response 
+pd.crosstab(train['prSat'], train['peakfare'], normalize='columns')
+
+# Fare cost grouped by satisfaction response
+p=sns.boxplot(x="prSat", y="costdol", data=train)
+p.set_xlabel('Satisfaction', fontsize=14)
+p.set_ylabel('One-way cost', fontsize=14)
+plt.show()
+
+
+# Load the dataset
+train = pd.read_csv('AustraliaTrain.csv')
+train.head()
+
+# Binary satisfied feature
+train['satisfied'] = train['prSat'] > 2
+train['satisfied'].value_counts()
+
+# Plot of the binary satisfied feature
+p = sns.countplot(data=train, x='satisfied')
+p.set_xlabel('Satisfied', fontsize=14)
+p.set_xticklabels(["No", "Yes"])
+plt.show()
+
+# Satisfied based on whether or not the city of origin was Sydney
+p = sns.countplot(data=train, x="Perth", hue="satisfied")
+p.set_xlabel('Perth origin', fontsize=14)
+p.set_xticklabels(["No", "Yes"])
+p.get_legend().set_title("Satisfied")
+plt.show()
+
+
+# Cross-tabulated counts
+pd.crosstab(train['satisfied'], train['Perth'], margins=True)
+
+# Satisfied based on whether or not the peak fare was paid
+p = sns.countplot(data=train, x="peakfare", hue="satisfied")
+p.set_xlabel('Paid peak fare', fontsize=14)
+p.set_xticklabels(["No", "Yes"])
+p.get_legend().set_title("Satisfied")
+plt.show()
+
+# Cross-tabulated counts
+pd.crosstab(train['satisfied'], train['peakfare'], margins=True)
+
+pd.crosstab(train['satisfied'], train['peakfare'], normalize='columns', margins=True)
+
+# Satisfied based on whether or not the peak fare was paid
+p = sns.countplot(data=train, x="license", hue="satisfied")
+p.set_xlabel('Licensed', fontsize=14)
+p.set_xticklabels(["No", "Yes"])
+p.get_legend().set_title("Satisfied")
+plt.show()
+
+# Cross-tabulated counts
+pd.crosstab(train['satisfied'], train['license'], margins=True)
