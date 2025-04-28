@@ -86,3 +86,34 @@ L.get_texts()[0].set_text('Adelie')
 L.get_texts()[1].set_text('Chinstrap')
 L.get_texts()[2].set_text('Gentoo')
 
+
+## Load the penguins dataset and drop instances with missing values
+penguins = pd.read_csv('penguins.csv').dropna()
+
+# Create integer-valued species
+penguins['species_int'] = penguins['species'].replace(to_replace = ['Adelie','Chinstrap', 'Gentoo'],
+                                                      value = [int(0), int(1), int(2)])
+
+# Use additional input features
+X = penguins[['bill_length_mm', 'bill_depth_mm']]
+y = penguins[['species_int']]
+
+%%time
+
+# Initialize a naive Bayes model
+NBModel = GaussianNB()
+
+# Fit the model
+NBModel.fit(X, np.ravel(y))
+
+# Make predictions
+NBModel.predict(X)
+
+# Initialize a k-nearest neighbors model
+knnModel = KNeighborsClassifier(n_neighbors=5)
+
+# Fit the model
+knnModel.fit(X, np.ravel(y))
+
+# Make predictions
+knnModel.predict(X)
