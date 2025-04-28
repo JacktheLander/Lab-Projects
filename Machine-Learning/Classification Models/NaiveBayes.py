@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -13,38 +7,21 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from mlxtend.plotting import plot_decision_regions
 
-
-# In[2]:
-
-
 ## Load the penguins dataset and drop instances with missing values
 penguins = pd.read_csv('penguins.csv').dropna()
 
 # Display first five rows
 penguins.head()
 
-
-# In[3]:
-
-
 # Create integer-valued species
 penguins['species_int'] = penguins['species'].replace(to_replace = ['Adelie','Chinstrap', 'Gentoo'],
                                                       value = [int(0), int(1), int(2)])
-
 # Calculate the number of penguins in each species
 penguins.groupby('species').count()
-
-
-# In[4]:
-
 
 # Define input features and output features
 X = penguins[['bill_length_mm']]
 y = penguins[['species_int']]
-
-
-# In[5]:
-
 
 # Initialize a Gaussian naive Bayes model
 NBModel = GaussianNB()
@@ -58,15 +35,7 @@ NBModel.predict(X)
 # Calculate the proportion of instances correctly classified
 NBModel.score(X, np.ravel(y))
 
-
-# In[6]:
-
-
 NBModel.predict_proba(X)[0:10]
-
-
-# In[7]:
-
 
 # Plot Gaussian naive Bayes model
 xrange = np.linspace(X.min(), X.max(), 10000)
@@ -82,17 +51,9 @@ plt.plot(xrange, probGentoo, color='#3ca02c', linewidth=2)
 plt.xlabel('Bill length (mm)', fontsize=14)
 plt.ylabel('Probability of each species', fontsize=14)
 
-
-# In[8]:
-
-
 # Use additional input features
 X = penguins[['bill_length_mm', 'bill_depth_mm']]
 y = penguins[['species_int']]
-
-
-# In[9]:
-
 
 # Initialize a Gaussian naive Bayes model
 NBModel = GaussianNB()
@@ -105,10 +66,6 @@ NBModel.predict(X)
 
 # Calculate the proportion of instances correctly classified
 NBModel.score(X, np.ravel(y))
-
-
-# In[10]:
-
 
 # Decision boundary plot with two input features
 # Set background opacity to 20%
