@@ -57,7 +57,7 @@ X = penguins[['bill_length_mm', 'bill_depth_mm']]
 y = penguins[['Adelie']]
 
 # Initialize a logistic regression model
-logisticModel = LogisticRegression(penalty=None)
+logisticModel = LogisticRegression(penalty='None')
 
 # Fit the model
 logisticModel.fit(X, np.ravel(y))
@@ -88,3 +88,28 @@ L = plt.legend()
 L.get_texts()[0].set_text('Chinstrap or Gentoo')
 L.get_texts()[1].set_text('Adelie')
 
+
+# Load the heart dataset
+heart = pd.read_csv('heart.csv')
+
+# Create a dataframe X containing thalach and chol
+X = heart[['thalach', 'chol']]
+
+# Output feature: target
+y = heart[['target']]
+
+# Initialize the model
+heartModel = LogisticRegression(penalty='l2')
+
+# Fit the model
+heartModel.fit(X, np.ravel(y))
+
+# Calculate the predicted probabilities
+probs = heartModel.predict_proba(X)
+
+print('Probabilities: {}'.format(probs))
+
+# Calculate the predicted classes
+classes = heartModel.predict(X)
+
+print('Classes: {}'.format(classes))
