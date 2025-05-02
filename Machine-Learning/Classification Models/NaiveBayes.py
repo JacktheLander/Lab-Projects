@@ -108,12 +108,3 @@ NBModel.fit(X, np.ravel(y))
 
 # Make predictions
 NBModel.predict(X)
-
-# Initialize a k-nearest neighbors model
-knnModel = KNeighborsClassifier(n_neighbors=5)
-
-# Fit the model
-knnModel.fit(X, np.ravel(y))
-
-# Make predictions
-knnModel.predict(X)
