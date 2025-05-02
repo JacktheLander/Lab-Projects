@@ -108,3 +108,25 @@ NBModel.fit(X, np.ravel(y))
 
 # Make predictions
 NBModel.predict(X)
+
+
+# Load the heart dataset
+heart = pd.read_csv('heart.csv')
+
+# Create a dataframe X containing trestbps and thalach
+X = heart[['trestbps', 'thalach']]
+
+# Output feature: target
+y = heart['target']
+
+# Initialize the model
+NBmodel = GaussianNB(priors=[0.1, 0.9])
+
+# Fit the model
+NBmodel.fit(X, y)
+
+# Calculate the predicted probabilities
+probs = NBmodel.predict_proba(X)
+
+# Print predicted probabilities
+print('Probabilities:', probs)
