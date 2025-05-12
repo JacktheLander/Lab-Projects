@@ -41,7 +41,47 @@ ConfusionMatrixDisplay(cm).plot()
 
 DTC.predict_proba(X_train)
 
+Coffee = Coffee[Coffee['total_cup_points']!=0]
+Coffee.shape
+Coffee.describe()
+Coffee.describe(include=['O'])
+X = Coffee[['uniformity', 'sweetness']]
+y = pd.get_dummies(Coffee['species'], drop_first=True)
 
+# Dummy variables are not required for DecisionTreeClassifier but are required for 
+# plot_decision_boundary
+
+# Create training and testing data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=123)
+
+p1 = sns.scatterplot(data=X_train, x='uniformity', y='sweetness', hue=y_train['Robusta'], alpha=0.5)
+p1.set(xlabel='Uniformity', ylabel='Sweetness')
+p1.get_legend().set_title('Species')
+
+DTC = DecisionTreeClassifier()
+DTC.fit(X_train,y_train)
+plot_tree(DTC, feature_names=X_train.columns)
+ax = plot_decision_regions(X_train.to_numpy(), 
+                           np.ravel(y_train), clf=DTC, legend=0)
+plt.xlabel('Uniformity')
+plt.ylabel('Sweetness')
+
+y_pred = DTC.predict(X_test)
+
+cm = confusion_matrix(y_test,y_pred)
+ConfusionMatrixDisplay(cm).plot()
+
+# Predict the probabilities 
+# (since the tree's leaves are all pure, the values are all 0 and 1)
+DTC.predict_proba(X_train)
+
+
+# Change the labels to species names
+handles, labels = ax.get_legend_handles_labels()
+
+ax.legend(handles, 
+          ['Arabica', 'Robusta'], 
+           framealpha=0.3, scatterpoints=1)
 
 ### Predicting mpg
 
