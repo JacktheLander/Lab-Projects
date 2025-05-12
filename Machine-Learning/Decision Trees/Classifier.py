@@ -83,6 +83,8 @@ ax.legend(handles,
           ['Arabica', 'Robusta'], 
            framealpha=0.3, scatterpoints=1)
 
+
+
 ### Predicting mpg
 
 mpg = pd.read_csv('mpg.csv')
@@ -115,3 +117,20 @@ cm = confusion_matrix(y_test,y_pred)
 # Plot the confusion matrix
 ConfusionMatrixDisplay(cm).plot()
 plt.savefig('confMatrix.png')
+
+
+### Predicting Heart Health
+
+heart = pd.read_csv('heart.csv')
+
+# Create a dataframe X containing input features cholesterol and maximum heart rate
+X = heart[['chol', 'thalach']]
+
+# Create a dataframe y containing output feature target
+y = heart[['target']]
+
+# Initialize the model
+DTCModel = DecisionTreeClassifier(criterion='entropy')
+
+# Print model parameters
+print(DTCModel.get_params())
