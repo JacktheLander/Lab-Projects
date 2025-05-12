@@ -74,7 +74,7 @@ ConfusionMatrixDisplay(cm).plot()
 # Predict the probabilities 
 # (since the tree's leaves are all pure, the values are all 0 and 1)
 DTC.predict_proba(X_train)
-
+DTC.classes_
 
 # Change the labels to species names
 handles, labels = ax.get_legend_handles_labels()
