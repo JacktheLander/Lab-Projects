@@ -1,0 +1,69 @@
+Threshold Model
+Total Arbitrage Profit for 5 Megapacks: $7,837.17
+Total Arbitrage Profit for 10 Megapacks: $8,352.53
+Total Arbitrage Profit for 15 Megapacks: $8,867.89
+Total Arbitrage Profit for 20 Megapacks: $9,369.92
+Total Arbitrage Profit for 25 Megapacks: $9,821.96
+Total Arbitrage Profit for 30 Megapacks: $10,282.64
+Total Arbitrage Profit for 35 Megapacks: $10,747.19
+Total Arbitrage Profit for 40 Megapacks: $11,276.95
+Total Arbitrage Profit for 45 Megapacks: $11,812.78
+Total Arbitrage Profit for 50 Megapacks: $12,294.87
+Total Arbitrage Profit for 55 Megapacks: $12,779.13
+Total Arbitrage Profit for 60 Megapacks: $13,268.75
+Total Arbitrage Profit for 65 Megapacks: $13,418.48
+Total Arbitrage Profit for 70 Megapacks: $13,332.60
+Total Arbitrage Profit for 75 Megapacks: $13,246.73
+Total Arbitrage Profit for 80 Megapacks: $13,160.85
+Total Arbitrage Profit for 85 Megapacks: $13,074.98
+Total Arbitrage Profit for 90 Megapacks: $12,989.11
+Total Arbitrage Profit for 95 Megapacks: $12,903.23
+Total Arbitrage Profit for 100 Megapacks: $12,817.36
+
+Predictive Model
+Total Arbitrage Profit for 5 Megapacks: $8,287.89
+Total Arbitrage Profit for 10 Megapacks: $8,882.55
+Total Arbitrage Profit for 15 Megapacks: $9,477.20
+Total Arbitrage Profit for 20 Megapacks: $10,064.25
+Total Arbitrage Profit for 25 Megapacks: $10,616.56
+Total Arbitrage Profit for 30 Megapacks: $11,161.00
+Total Arbitrage Profit for 35 Megapacks: $11,704.40
+Total Arbitrage Profit for 40 Megapacks: $12,259.88
+Total Arbitrage Profit for 45 Megapacks: $12,831.85
+Total Arbitrage Profit for 50 Megapacks: $13,461.49
+Total Arbitrage Profit for 55 Megapacks: $14,068.85
+Total Arbitrage Profit for 60 Megapacks: $14,641.88
+Total Arbitrage Profit for 65 Megapacks: $15,219.65
+Total Arbitrage Profit for 70 Megapacks: $15,800.21
+Total Arbitrage Profit for 75 Megapacks: $16,280.80
+Total Arbitrage Profit for 80 Megapacks: $16,542.13
+Total Arbitrage Profit for 85 Megapacks: $16,536.25
+Total Arbitrage Profit for 90 Megapacks: $16,530.38
+Total Arbitrage Profit for 95 Megapacks: $16,524.50
+Total Arbitrage Profit for 100 Megapacks: $16,518.63
+
+Optimal for Revenue = Historical model with 75 Megapacks = 292.5 MWH
+Optimal for profiting is much less however
+Overall expense of the battery is way too high, this is why value stacking is important
+
+Grid Based Model
+Total Arbitrage Profit for 5 Megapacks: $608.55
+Total Arbitrage Profit for 10 Megapacks: $1,217.10
+Total Arbitrage Profit for 15 Megapacks: $1,825.64
+Total Arbitrage Profit for 20 Megapacks: $2,434.19
+Total Arbitrage Profit for 25 Megapacks: $3,042.74
+Total Arbitrage Profit for 30 Megapacks: $3,651.29
+Total Arbitrage Profit for 35 Megapacks: $4,259.84
+Total Arbitrage Profit for 40 Megapacks: $4,868.38
+Total Arbitrage Profit for 45 Megapacks: $5,476.93
+Total Arbitrage Profit for 50 Megapacks: $6,085.48
+Total Arbitrage Profit for 55 Megapacks: $6,694.03
+Total Arbitrage Profit for 60 Megapacks: $7,302.58
+Total Arbitrage Profit for 65 Megapacks: $7,911.12
+Total Arbitrage Profit for 70 Megapacks: $8,519.67
+Total Arbitrage Profit for 75 Megapacks: $9,128.22
+Total Arbitrage Profit for 80 Megapacks: $9,736.77
+Total Arbitrage Profit for 85 Megapacks: $10,345.32
+Total Arbitrage Profit for 90 Megapacks: $10,953.86
+Total Arbitrage Profit for 95 Megapacks: $11,562.41
+Total Arbitrage Profit for 100 Megapacks: $12,170.96
