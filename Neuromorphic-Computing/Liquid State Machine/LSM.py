@@ -18,16 +18,7 @@ from progressbar import progressbar
 from os.path import join, isdir
 import os, sys
 
-# ******************************************************************************
-"""
-	The Python code is from https://github.com/SNNalgo/snntorch-LSM/blob/main/main.py
 
-	The Python implementation is for the idea from the paper:
-	Biswas, Anmol, et al. "MAdapter: A Multimodal Adapter for Liquid State Machines
-	configures the Input Layer for the same Reservoir to enable Vision and Speech
-	Classification." 2023 International Joint Conference on Neural Networks (IJCNN). IEEE, 2023.
-"""
-# ******************************************************************************
 if __name__ == "__main__":
 	# **********************************************************************
 	# set the function name
