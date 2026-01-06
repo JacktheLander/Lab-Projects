@@ -1,0 +1,1 @@
+In Robotics by Professor Kitts we simulated robot dynamics, deriving forward kinematics and Jacobians. The robotic controller uses Denavit-Hartenberg parameters for Peter Corke's MATLAB Robotics Toolbox.
