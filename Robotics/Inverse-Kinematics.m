@@ -1,6 +1,6 @@
 %%% Jack Landers - Robotics
 
-%%% Homework 3
+%%% Inverse Kinematics
 %% 7.
 
 clearvars; clc;
@@ -110,4 +110,5 @@ T = [1 0 0 470;
     0 0 0 1];
 
 q = theta + [pi/4 pi/4 pi/4 0 -pi/4 0];    % Joint Angles
+
 Q = ikine(robot, T, q, mask)
