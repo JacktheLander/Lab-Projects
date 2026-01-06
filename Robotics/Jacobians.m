@@ -1,6 +1,6 @@
 %%% Jack Landers - Robotics
 
-%%% Homework 4
+%%% Jacobians
 %% 6. Direct Differentiation
 
 clearvars;
@@ -152,5 +152,6 @@ J = J(1:3, :)
 
 % Joint 4 will only affect the y axis and joint 6 will have no effect 
 % at the end effector
+
 
 % Should have used the full 6x6 Jacobian for a 6DOF robot
