@@ -1,6 +1,6 @@
 %%% Jack Landers - Robotics
 
-%%% Homework 5
+%%% Manipulator Dynamics
 
 %% 1. EOM for a polar two-link manipulator
 clc;
@@ -93,4 +93,5 @@ M = [0 0; 0 m2];
 V = [2*d2*ddot*m2*qdot1; 0];
 
 Mx = pinv(J)'*M*pinv(J)
+
 Vx = pinv(J)'*(V-M*pinv(J)*Jdot*[qdot1; ddot])
