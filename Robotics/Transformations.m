@@ -1,7 +1,6 @@
 %%% Jack Landers - Robotics
 
-%%% Homework 1
-%% 2.
+%%% Transformations
 
 a = [1, 2, 3];
 b = [1; 2; 3;];
@@ -65,3 +64,4 @@ Tab = [-1, 0, 0, 0; 0, 0, -1, 4; 0, -1, 0, 2; 0, 0, 0, 1;];
 Tbc = [-cos(a), -cos(a), 0, 3; sin(a), 0, 0, 0; 0, sin(a), 0, 0; 0, 0, 0, 1];
 
 Tab*Tbc
+
