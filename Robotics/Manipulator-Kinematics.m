@@ -1,6 +1,6 @@
 %%% Jack Landers - Robotics
 
-%%% Homework 2
+%%% Kinematics
 %% 1.
 
 clearvars; clc;
@@ -191,4 +191,5 @@ robot = robot({link1 link2 link3 link4 link5 link6});
 plot(robot, theta)
 
 %Q = theta + [pi/2 -pi/4 0 -pi/2 0 0];
+
 %plot(robot, Q)
