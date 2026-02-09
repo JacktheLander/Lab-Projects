@@ -8,5 +8,5 @@ I'm excited to continue exploring robot learning systems that can move from theo
 
 You can read the full paper [here](https://jacklanders.site/Publications/Robot%20Imitation%20Learning%20from%20Kinesthetic%20Teaching.pdf)
 
-<img src="Figs/ObstacleAvoidance.png" />
+<img src="figs/ObstacleAvoidance.png" />
 
