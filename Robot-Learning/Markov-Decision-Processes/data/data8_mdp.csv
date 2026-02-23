@@ -1,0 +1,6 @@
+test_id,step,move_end_frame,move_end_time_s,action_color,action_object,state_placed,state_remaining,state_remaining_counts,next_state_placed,next_state_remaining,next_state_remaining_counts,is_subsequence_next,is_terminal,reward
+data8,0,105,1.7524566539923954,blue,blue_1,(),"('red', 'blue', 'green', 'red', 'green')","(2, 2, 1)","('blue',)","('red', 'green', 'red', 'green')","(2, 2, 0)",True,False,0.99
+data8,1,351,5.858212243346007,green,green_1,"('blue',)","('red', 'green', 'red', 'green')","(2, 2, 0)","('green', 'blue')","('red', 'red', 'green')","(2, 1, 0)",True,False,0.99
+data8,2,458,7.644049024081115,green,green_2,"('green', 'blue')","('red', 'red', 'green')","(2, 1, 0)","('green', 'blue', 'green')","('red', 'red')","(2, 0, 0)",True,False,0.99
+data8,3,697,11.632974169835235,red,red_2,"('green', 'blue', 'green')","('red', 'red')","(2, 0, 0)","('green', 'red', 'blue', 'green')","('red',)","(1, 0, 0)",True,False,0.99
+data8,4,985,16.439712420785803,red,red_1,"('green', 'red', 'blue', 'green')","('red',)","(1, 0, 0)","('green', 'red', 'blue', 'red', 'green')",(),"(0, 0, 0)",True,True,10.99
