@@ -44,27 +44,29 @@ class BiolekR2Memristor(nn.Module):
         self.b2     = torch.tensor(10e-6, dtype=torch.float64)
         self.DeltaX = self.Roff - self.Ron
 
-        self.Rinit = (self.Ron + self.Roff)/2
-
-        def theta(x, b):
-            return 1 / (1 + np.exp(-x / b))
-
-        def gamma(x, b):
-            return x * (self.theta(x, b) - self.theta(-x, b))
-
+        self.x = (self.Ron + self.Roff) / 2  # Initialize internal state variable as global
 
     # **************************************************************************
     def UpdateVals(self, Vin, dt):
-        f = self.Beta * (Vin - 0.5 * (self.gamma(Vin + self.Vth, self.b1) - self.gamma(Vin - self.Vth, self.b1)))
+        def theta(x, b):
+            return 1 / (1 + torch.exp(-x/b))
 
-        term1 = self.theta(Vin, self.b1) * self.theta(1 - x / self.Roff, self.b2)
-        term2 = self.theta(-Vin, self.b1) * self.theta(x / self.Ron - 1, self.b2)
-        W = term1 + term2   # here we separated the W function for readability
+        def gamma(x, b):
+            return x * (theta(x, b) - theta(-x, b))
 
+        f = self.Beta * (Vin - 0.5 * (gamma(Vin + self.Vth, self.b1) - gamma(Vin - self.Vth, self.b1)))
+
+        term1 = theta(Vin, self.b1) * theta(1 - self.x / self.Roff, self.b2)
+        term2 = theta(-Vin, self.b1) * theta(self.x / self.Ron - 1, self.b2)
+        W = term1 + term2   # Here I separated the W function for readability
+
+        dx_dt = f * W
+        self.x += dx_dt * dt
         ...
 
     # **************************************************************************
     def GetVals(self):
+        return self.Ron + (self.DeltaX * self.x)
         ...
 
 # ******************************************************************************
@@ -72,7 +74,7 @@ if __name__ == "__main__":
     # import module
     from os.path import join
     import sys
-    from progressbar import progressbar
+    from progressbar import ProgressBar
     import matplotlib.pyplot as plt
     from matplotlib import rcParams
     rcParams.update({"figure.autolayout": True})
@@ -142,7 +144,8 @@ if __name__ == "__main__":
     # calculate internal state
     # **************************************************************************
     R[0]    = MemRes.GetVals()
-    for i in progressbar(range(1, NumTs)):
+    print(f"NumTs: {NumTs}, Vs.shape: {Vs.shape}, R.shape: {R.shape}, ts.shape: {ts.shape}") # For debugging
+    for i in range(0, NumTs):
         # **********************************************************************
         # get the delta X or x
         # **********************************************************************
@@ -152,6 +155,8 @@ if __name__ == "__main__":
         # save the resistance
         # **********************************************************************
         R[i]    = MemRes.GetVals()
+        print(Vs[i].item(), R[i].item())
+
 
     # **************************************************************************
     # calculate the current
